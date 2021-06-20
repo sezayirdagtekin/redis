@@ -1,0 +1,7 @@
+$  docker run -d -p 6379:6379 --name my-redis redis
+
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+aff1738758ed   redis     "docker-entrypoint.s…"   14 minutes ago   Up 14 minutes   0.0.0.0:6379->6379/tcp, :::6379->6379/tcp   my-redis
+
+$  docker exec -it my-redis redis-cli
