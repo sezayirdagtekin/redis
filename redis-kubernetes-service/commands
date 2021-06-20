@@ -1,0 +1,32 @@
+$  ls
+ Directory: C:\sezo\redis-kubernetes-service
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        20.06.2021     10:42            706 redis-pod.yaml
+-a----        19.06.2021     18:51            176 redis-service.yml
+-a----        19.06.2021     18:50            156 sezayir-redis-config.yml
+
+#Create configmap
+$  kubectl apply -f .\sezayir-redis-config.yml
+configmap/sezayir-redis-config created
+
+#Create pod
+$  kubectl apply -f  .\redis-pod.yaml
+pod/redis created
+
+#Create service
+$  kubectl apply -f  .\redis-service.yml
+service/redis-service created
+
+$  kubectl get all
+NAME        READY   STATUS              RESTARTS   AGE
+pod/redis   0/1     ContainerCreating   0          19s
+
+NAME                    TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP          2m47s
+service/redis-service   NodePort    10.96.35.245   <none>        6379:31248/TCP   8s
+
+#EXTERNAL ACCESS
+$  telnet 127.0.0.1 31248
+
