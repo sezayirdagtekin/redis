@@ -72,5 +72,6 @@ redis.conf
 GNU nano 3.2                 
                                                                                                            
 maxmemory 2mb
+ 
 maxmemory-policy allkeys-lru
 
