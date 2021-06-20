@@ -63,6 +63,7 @@ root@redis:/redis-master# ls
 redis.conf
 
 root@redis:/redis-master# apt update
+ 
 root@redis:/redis-master# apt install nano
 
 root@redis:/redis-master# nano redis.conf
