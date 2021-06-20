@@ -1,3 +1,9 @@
+# redis service with kubernetes
+
+
+
+
+
 $  ls
  Directory: C:\sezo\redis-kubernetes-service
 
@@ -30,6 +36,7 @@ service/redis-service   NodePort    10.96.35.245   <none>        6379:31248/TCP 
 #EXTERNAL ACCESS
 $  telnet 127.0.0.1 31248
 
+#Acces from  redis-cli
 
 $  kubectl get pods
 NAME    READY   STATUS    RESTARTS   AGE
@@ -44,6 +51,8 @@ OK
 127.0.0.1:6379> get name
 "sezayir"
 127.0.0.1:6379>
+
+#Open redis conf with nano
 
 PS C:\sezo\redis-kubernetes-service> kubectl exec -it redis  -- bash
 root@redis:/data# cd ..
@@ -63,3 +72,4 @@ GNU nano 3.2
                                                                                                            
 maxmemory 2mb
 maxmemory-policy allkeys-lru
+
