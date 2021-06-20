@@ -54,12 +54,16 @@ OK
 
 #Open redis conf with nano
 
-PS C:\sezo\redis-kubernetes-service> kubectl exec -it redis  -- bash
+$  kubectl exec -it redis  -- bash
 root@redis:/data# cd ..
+ 
 root@redis:/# ls
+ 
 bin  boot  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  redis-master  redis-master-data  root  run  sbin  srv  sys  tmp  usr  var
 root@redis:/# cd redis-master
+ 
 root@redis:/redis-master# ls
+ 
 redis.conf
 
 root@redis:/redis-master# apt update
