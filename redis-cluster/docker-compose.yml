@@ -1,0 +1,19 @@
+master:
+  image: redis
+slave:
+  image: redis
+  volumes:
+    - ./redis.conf:/usr/local/etc/redis/redis.conf
+  command: redis-server --slaveof redis-master 6379
+  links:
+    - master:redis-master
+  ports:
+    - 6379:6379
+sentinel:
+  build: sentinel
+  environment:
+    - SENTINEL_DOWN_AFTER=5000
+    - SENTINEL_FAILOVER=5000
+  links:
+    - master:redis-master
+    - slave
